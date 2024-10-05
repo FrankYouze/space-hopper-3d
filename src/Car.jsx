@@ -7,11 +7,11 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 
 import React from 'react'
 
-const Car = () => {
+const Car = ({positions}) => {
     const gltf = useLoader(GLTFLoader, '/car/scene.gltf')
   return (
  <primitive 
- position = {[8,9,2]}
+ position = {positions}
  object={ gltf.scene}/>
   )
 }

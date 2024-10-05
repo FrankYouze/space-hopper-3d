@@ -3,6 +3,7 @@ import { useRef } from 'react'
 import { useLoader, useFrame } from "@react-three/fiber"
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import Car from './Car'
+import Points from './Mesh'
 export default function Object() {
 
     const objectRef = useRef();
@@ -19,17 +20,15 @@ export default function Object() {
 
     return <>
     <OrbitControls/>
-        {/* <mesh position-x = {-2} scale = {1.2}>
+        <mesh position-x = {-2} scale = {1.2}>
             <torusKnotGeometry />
             <meshNormalMaterial />
-        </mesh> */}
-        {/* <mesh ref = { objectRef } position-x = {2}>
-            <torusKnotGeometry color ='white' />
-            <meshNormalMaterial />
-        </mesh> */}
-<Car></Car>
+        </mesh>
+  
+{/* <Car/> */}
 
-        <hemisphereLight intensity={0.15} groundColor='black' />
+{/* <primitive position = {[9,7,5]} object={tree.scene} /> */}
+        <hemisphereLight intensity={0.15} groundColor='white' />
       <spotLight
         position={[-20, 50, 10]}
         angle={0.12}
@@ -37,8 +36,10 @@ export default function Object() {
         intensity={1}
         castShadow
         shadow-mapSize={1024}
+
       />
-       <primitive position = {[9,7,5]} object={tree.scene} />
+      <ambientLight intensity={0.5}/>
+   
         <primitive scale = {0.3}  position = {[0,0,0]} object={sun.scene} />
     </>
 }
