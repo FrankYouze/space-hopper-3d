@@ -5,13 +5,15 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 
 
 
-import React from 'react'
+import {Suspens,React }from 'react'
 
 const Sun = ({positions}) => {
-    const gltf = useLoader(GLTFLoader, '/sun/scene.gltf')
+    const gltf = useLoader(GLTFLoader, '/sun2/scaled_sun.gltf')
    console.log(positions)
   return (
+    
  <primitive 
+ 
  position = {positions}
  object={ gltf.scene}/>
   )

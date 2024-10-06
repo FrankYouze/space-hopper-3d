@@ -1,5 +1,5 @@
 import './index.css'
-import { OrbitControls, useGLTF } from '@react-three/drei'
+import { OrbitControls, useGLTF,PerspectiveCamera, PointerLockControls } from '@react-three/drei'
 import { Canvas } from "@react-three/fiber"
 import Object from './Object'
 import Car from './Car'
@@ -8,6 +8,8 @@ import Sun from './Sun'
 import gaiaData from './data/gaia_data'
 import gaiaFake from './data/gaia_fake'
 import exoplanetsData from './data/exoplanets'
+import Planet from './planets'
+import closestStarsData from './data/closest_stars_scaled'
 export default function Objects() {
 
     console.log(gaiaFake)
@@ -17,20 +19,23 @@ export default function Objects() {
     
     return <>
         <Canvas
-        camera={{ position: [39, 40, 49], fov: 50 }}
+        
+       // camera={{ position: [587, -2657, 1202], fov: 50 }}
         >
             {/* <Car/> */}
             {/* <Points /> */}
-            <OrbitControls/>
-            <ambientLight intensity={0.5}/>
-         {exoplanetsData.map((item,index)=>{
-            console.log(item.x)
-                return <Points positions={[item.x*1000,item.y*1000 ,item.z*1000]}  key={index} />
+            {/* <PointerLockControls/> */}
+            <PerspectiveCamera  position={  [344, -1724,-3598]} fov = {100} near={0.1} far={1000000}/>
+            <OrbitControls dampingFactor={0.3}/>
+            <ambientLight intensity={5}/>
+         {closestStarsData.map((item,index)=>{
+            // console.log(item.x*0.01)
+                return <Points positions={[item.x*0.1,item.y*0.1,item.z*0.1]} name={item.name}  key={index} />
             })}
-             {/* {gaiaData.map((item,index)=>{
+             {exoplanetsData.map((item,index)=>{
             console.log(item.x)
-                return <Points positions={[parseFloat(item.x)* 100,parseFloat(item.y)* 100,parseFloat(item.z)* 100]} color={item.color} key={index} />
-            })} */}
+                return <Planet positions={[parseFloat(item.x)* 1000,parseFloat(item.y)* 1000,parseFloat(item.z)* 1000]} name={item.name} key={index} />
+            })}
             {/* <Object /> */}
         </Canvas>
     </>
