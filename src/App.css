@@ -1,3 +1,31 @@
 *{
     background-color: black;
 }
+/* 
+.juu{
+    height: 35px;
+    background-color: rgb(130, 139, 141);
+    color: white;
+    display: flex;
+    gap: 10px;
+    
+}
+
+input{
+    background-color: gray;
+    padding: 10px;
+} */
+
+ /* Container div styling */
+
+  
+  /* Optional background animation for extra flair
+  body {
+    background: radial-gradient(circle at center, #000000 0%, #111111 100%);
+    min-height: 100vh;
+    font-family: 'Orbitron', sans-serif; /* Same futuristic font */
+    /* display: flex;
+    align-items: center;
+    justify-content: center;
+  } */
+   

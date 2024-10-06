@@ -8,7 +8,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import {Suspens,React }from 'react'
 
 const Sun = ({positions}) => {
-    const gltf = useLoader(GLTFLoader, '/sun2/scaled_sun.gltf')
+    const gltf = useLoader(GLTFLoader, '/SpaceApp.gltf')
    console.log(positions)
   return (
     

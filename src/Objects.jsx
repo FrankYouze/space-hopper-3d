@@ -1,5 +1,5 @@
 import './index.css'
-import { OrbitControls, useGLTF,PerspectiveCamera, PointerLockControls } from '@react-three/drei'
+import { OrbitControls, useGLTF,PerspectiveCamera, PointerLockControls,Html } from '@react-three/drei'
 import { Canvas } from "@react-three/fiber"
 import Object from './Object'
 import Car from './Car'
@@ -10,14 +10,57 @@ import gaiaFake from './data/gaia_fake'
 import exoplanetsData from './data/exoplanets'
 import Planet from './planets'
 import closestStarsData from './data/closest_stars_scaled'
+import { useState } from'react'
+import './Objects.css'
 export default function Objects() {
 
-    console.log(gaiaFake)
+    const [inputValue, setInputValue] = useState('');
+
+
+    const SearchComponent = () => {
+        const [inputValue, setInputValue] = useState('');
+    };
+        const handleInputChange = (event) => {
+          setInputValue(event.target.value);
+        };
+      
+        const handleSearch = () => {
+          // Function to perform search in a JS file
+          searchInJsFile(inputValue);
+        };
 
 
 
+
+        const searchInJsFile = (query) => {
+            const result = exoplanetsData.filter(item => item.toLowerCase().includes(query.toLowerCase()));
+            
+            if (result.length > 0) {
+              console.log('Search Results:', result);
+            } else {
+              console.log('No results found');
+            }
+          };
+
+
+
+
+
+ 
     
     return <>
+
+
+<div className="juu">
+    SPACE HOPPERS
+    <input 
+className="search"
+value={inputValue}
+onChange={handleInputChange}
+type="text" placeholder="search planet"/>
+
+  </div>
+
         <Canvas
         
        // camera={{ position: [587, -2657, 1202], fov: 50 }}
@@ -30,10 +73,16 @@ export default function Objects() {
             <ambientLight intensity={5}/>
          {closestStarsData.map((item,index)=>{
             // console.log(item.x*0.01)
-                return <Points positions={[item.x*0.1,item.y*0.1,item.z*0.1]} name={item.name}  key={index} />
+                return <>
+  
+   <Points
+   
+
+   positions={[item.x*0.1,item.y*0.1,item.z*0.1]} name={item.name}  key={index} />
+                </>
             })}
              {exoplanetsData.map((item,index)=>{
-            console.log(item.x)
+            // console.log(item.x)
                 return <Planet positions={[parseFloat(item.x)* 1000,parseFloat(item.y)* 1000,parseFloat(item.z)* 1000]} name={item.name} key={index} />
             })}
             {/* <Object /> */}

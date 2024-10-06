@@ -1,0 +1,50 @@
+.juu {
+    background: linear-gradient(135deg, #0d0d0d, #1a1a1a); /* Dark space-like background */
+    color: #f0f0f0;  /* Light text color to contrast against dark background */
+    font-family: 'Orbitron', sans-serif; /* Futuristic font choice */
+    text-align: center;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Soft glow around the div */
+    margin: 20px auto;
+    max-width: 400px;
+    display: inline-flex;
+    border: 2px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+  }
+  
+  /* Title styling (SPACE HOPPER) */
+  .juu::before {
+    content: "🌌 "; /* Optional: space emoji for more theme flavor */
+    font-size: 23px;
+  }
+  
+  .juu {
+    font-size: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase; /* Gives a space-mission-like feel */
+    margin-bottom: 20px;
+  }
+  
+  /* Input styling */
+  .search {
+    background-color: rgba(255, 255, 255, 0.1); /* Transparent input box */
+    border: 1px solid #00ffcc; /* Glowing neon border */
+    padding: 10px;
+    width: 80%;
+    border-radius: 5px;
+    color: #f0f0f0; /* White text inside the input */
+    font-family: 'Orbitron', sans-serif;
+    outline: none;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .search::placeholder {
+    color: #999999; /* Placeholder text in a dim gray */
+    font-style: italic;
+  }
+  
+  /* Input focus glow effect */
+  .search:focus {
+    box-shadow: 0 0 8px 2px #00ffcc;
+    border-color: #00ffcc; /* Neon glow effect when focused */
+  }

@@ -3,7 +3,7 @@ import { useRef } from 'react'
 import { useLoader, useFrame, events } from "@react-three/fiber"
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 
-import {Suspense ,React} from 'react'
+import {Suspense ,React,} from 'react'
 
 export const Planet = ({positions,color}) => {
 
