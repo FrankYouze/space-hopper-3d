@@ -14,31 +14,38 @@ import { useState } from'react'
 import './Objects.css'
 export default function Objects() {
 
-    const [inputValue, setInputValue] = useState('');
+ 
+    const [coordinates, setCoordinates] = useState({ x: 0, y: 0, z: 0 });
 
 
-    const SearchComponent = () => {
+    
         const [inputValue, setInputValue] = useState('');
-    };
+    
         const handleInputChange = (event) => {
           setInputValue(event.target.value);
         };
       
         const handleSearch = () => {
           // Function to perform search in a JS file
-          searchInJsFile(inputValue);
+          
+        searchInJsFile(inputValue);
         };
 
 
 
 
         const searchInJsFile = (query) => {
-            const result = exoplanetsData.filter(item => item.toLowerCase().includes(query.toLowerCase()));
+            const result = exoplanetsData.filter(item => item.name.toLowerCase().includes(query.toLowerCase()));
             
             if (result.length > 0) {
-              console.log('Search Results:', result);
+              console.log('Search Results:', result[0]);
+             // const { x, y, z } = results[0]; 
+
+              setCoordinates({ x:result[0].x, y: result[0].y, z:result[0].z });
+
             } else {
               console.log('No results found');
+            //  setCoordinates({ x: 334, y: -1724, z: -3598 });
             }
           };
 
@@ -57,18 +64,18 @@ export default function Objects() {
 className="search"
 value={inputValue}
 onChange={handleInputChange}
-type="text" placeholder="search planet"/>
-
+type="text" placeholder="search for planet...."/>
+<button type='submit' onClick={handleSearch}>SEARCH</button>
   </div>
 
         <Canvas
         
-       // camera={{ position: [587, -2657, 1202], fov: 50 }}
+    //    camera={{ position:  [coordinates.x*1000, coordinates.y*1000,coordinates.z*1000], fov: 50 }}
         >
             {/* <Car/> */}
             {/* <Points /> */}
             {/* <PointerLockControls/> */}
-            <PerspectiveCamera  position={  [344, -1724,-3598]} fov = {100} near={0.1} far={1000000}/>
+            <PerspectiveCamera  position={  [coordinates.x*1000, coordinates.y*1000,coordinates.z*1000]} fov = {100} near={0.1} far={1000000}/>
             <OrbitControls dampingFactor={0.3}/>
             <ambientLight intensity={5}/>
          {closestStarsData.map((item,index)=>{

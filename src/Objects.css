@@ -7,8 +7,10 @@
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Soft glow around the div */
     margin: 20px auto;
-    max-width: 400px;
-    display: inline-flex;
+    max-width: 90%;
+    padding: 20px;
+    display: flex;
+    
     border: 2px solid rgba(255, 255, 255, 0.1); /* Subtle border */
   }
   
